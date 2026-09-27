@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="flex justify-center items-center py-8" id="container">
+    <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 w-full lg:w-3/4 grid grid-cols-4 gap-4">
+
+        <div class="col-span-4 lg:col-span-3 order-2 lg:order-1">
+            <h1 class="text-4xl text-slate-700 font-semibold">Book Tracker</h1>
+
+            <p class="my-4 text-slate-500">Your books are listed below</p>
+
+            <label class="input bg-slate-50 border-slate-200 focus-within:border-blue-300 rounded-lg">
+                <svg class="h-[1em] opacity-40 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <g
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke-width="2.5"
+                    fill="none"
+                    stroke="currentColor"
+                  >
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                  </g>
+                </svg>
+                <input 
+                    type="search" 
+                    required 
+                    placeholder="Search" 
+                    name="search"
+                    class="text-slate-600 placeholder:text-slate-400"
+                    hx-get="{% url 'search' %}"
+                    hx-trigger="keyup delay:250ms"
+                    hx-target="#book-table" />
+              </label>
+
+              {% include 'partials/book-table.html' %}
+        </div>
+        <div class="col-span-4 lg:col-span-1 order-1 lg:order-2 bg-slate-50/60 rounded-xl p-4">
+            <h1 class="text-4xl mb-4 text-slate-700 font-semibold">Add Book</h1>
+
+            {% include 'partials/book-form.html' %}
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}
