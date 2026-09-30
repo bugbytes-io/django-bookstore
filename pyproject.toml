@@ -1,0 +1,13 @@
+[project]
+name = "django-bookstore"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "dj-database-url>=3.1.2",
+    "django==6.1",
+    "django-allauth==65.7.0",
+    "django-extensions==4.1",
+    "gunicorn>=26.2.0",
+    "psycopg2-binary>=2.9.13",
+    "whitenoise>=6.12.0",
+]
